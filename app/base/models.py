@@ -10,7 +10,7 @@ from app import db, login_manager
 
 from app.base.util import hash_pass
 
-class PlayersMonitor(db.model):
+class PlayersMonitor(db.Model):
     __tablename__ = 'PlayersMonitor'
 
     id = Column(Integer, primary_key=True)
