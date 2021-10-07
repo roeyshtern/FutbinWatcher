@@ -33,7 +33,9 @@ class ProductionConfig(Config):
         config( 'DB_HOST'     , default='localhost'     ),
         config( 'DB_PORT'     , default=5432            ),
         config( 'DB_NAME'     , default='appseed-flask' )
+        
     )
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 class DebugConfig(Config):
     DEBUG = True

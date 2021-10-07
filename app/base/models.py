@@ -18,6 +18,7 @@ class User(db.Model, UserMixin):
     username = Column(String, unique=True)
     email = Column(String, unique=True)
     password = Column(Binary)
+    ifttt_code = Column(String)
 
     def __init__(self, **kwargs):
         for property, value in kwargs.items():
