@@ -1,0 +1,71 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Login {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+
+              <form role="form" method="post" action="">
+              
+                <div class="card-header">
+                  <h5 class="title">Add Player To Watch</h5>
+
+                  <h6 class="card-category">
+                      Add Player Details
+                  </h6>
+                </div>
+
+                <div class="card-body">
+
+                    <div class="row">
+
+                      <div class="col-md-3 px-md-1">
+                        <div class="form-group">
+                          <label>Player Id</label>
+                          <input class="form-control" id="player_id_add_player" name="player_id" required="" type="text" value="">
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="row">
+
+                      <div class="col-md-3 px-md-1">
+                        <div class="form-group">
+                          <label>Min Price</label>
+                          <input class="form-control" id="min_price_add_player" name="min_price" required="" type="text" value="">
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="row">
+
+                      <div class="col-md-3 px-md-1">
+                        <div class="form-group">
+                          <label>Max Price</label>
+                          <input class="form-control" id="max_price_add_player" name="max_price" required="" type="text" value="">
+                        </div>
+                      </div>
+
+                    </div>
+                    
+                </div>
+                <div class="card-footer">
+                  <button type="submit" name="add_player" class="btn btn-fill btn-primary">Add</button>
+
+              </form>
+
+            </div>
+          </div>
+      </div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

@@ -15,6 +15,26 @@ def index():
 
     return render_template('index.html', segment='index')
 
+@blueprint.route('/add-player.html', methods=['POST'])
+def add_player():
+    if 'add_player' in request.form:
+        
+        # read form data
+        player_id = request.form['player_id']
+        min_price = request.form['min_price']
+        max_price = request.form['max_price']
+
+        # Locate user
+        #user = User.query.filter_by(username=username).first()
+        
+        print("Entered: {0} - min - {1} max - {2}".format(player_id, min_price, max_price))
+
+        # Something (user or pass) is not ok
+        return render_template( 'index.html', segment='index')
+
+    else:
+        return render_template('page-500.html'), 500
+
 @blueprint.route('/<template>')
 @login_required
 def route_template(template):
