@@ -19,35 +19,38 @@
             <thead class=" text-primary">
               <tr>
                 <th>
-                  Name
+                  Player Id
                 </th>
                 <th>
-                  Country
+                  Min Price
                 </th>
                 <th>
-                  City
+                  Max Price
                 </th>
                 <th class="text-center">
-                  Salary
+                  Curent Price
                 </th>
               </tr>
             </thead>
             <tbody>
+            {% for user in segment %}
               <tr>
                 <td>
-                  Dakota Rice
+                  {{user.player_id}}
                 </td>
                 <td>
-                  Niger
+                  {{user.min_price}}
                 </td>
                 <td>
-                  Oud-Turnhout
+                  {{user.max_price}}
                 </td>
                 <td class="text-center">
-                  $36,738
+                  {{user.current_price}}
                 </td>
               </tr>
-              <tr>
+            {% endfor %}
+              
+              <!--<tr>
                 <td>
                   Minerva Hooper
                 </td>
@@ -130,7 +133,7 @@
                 <td class="text-center">
                   $98,615
                 </td>
-              </tr>
+              </tr>-->
             </tbody>
           </table>
         </div>

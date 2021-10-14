@@ -8,6 +8,7 @@ from flask import render_template, redirect, url_for, request
 from flask_login import login_required, current_user
 from app import login_manager
 from jinja2 import TemplateNotFound
+from app.base.models import User, PlayersMonitor
 
 @blueprint.route('/index')
 @login_required
@@ -65,6 +66,8 @@ def get_segment( request ):
 
         if segment == '':
             segment = 'index'
+        if segment == 'ui-tables.html':
+            segment = PlayersMonitor.query().all()
 
         return segment    
 
