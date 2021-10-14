@@ -55,6 +55,7 @@ def route_template(template):
         return render_template('page-404.html'), 404
     
     except:
+        raise
         return render_template('page-500.html'), 500
 
 # Helper - Extract current page name from request 
