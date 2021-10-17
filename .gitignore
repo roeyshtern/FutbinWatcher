@@ -28,3 +28,4 @@ _templates
 package-lock.json
 .vscode/symbols.json
 
+.env
