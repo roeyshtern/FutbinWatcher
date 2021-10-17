@@ -2,7 +2,8 @@
 """
 Copyright (c) 2019 - present AppSeed.us
 """
-
+from app import db
+from flask.globals import current_app
 from app.home import blueprint
 from flask import render_template, redirect, url_for, request
 from flask_login import login_required, current_user
@@ -27,7 +28,9 @@ def add_player():
 
         # Locate user
         #user = User.query.filter_by(username=username).first()
-        
+        player = PlayersMonitor(player_id=player_id, min_price=min_price, max_price=max_price)
+        db.session.add(player)
+        db.session.commit()
         print("Entered: {0} - min - {1} max - {2}".format(player_id, min_price, max_price))
 
         # Something (user or pass) is not ok
@@ -47,6 +50,7 @@ def route_template(template):
 
         # Detect the current page
         segment = get_segment( request )
+        
 
         # Serve the file (if exists) from app/templates/FILE.html
         return render_template( template, segment=segment )
@@ -68,9 +72,10 @@ def get_segment( request ):
         if segment == '':
             segment = 'index'
         if segment == 'ui-tables.html':
-            segment = PlayersMonitor.query().all()
-
+            segment = db.session.query(PlayersMonitor).all()
+        
         return segment    
 
-    except:
+    except Exception as e:
+        current_app.logger.info(e)
         return None  

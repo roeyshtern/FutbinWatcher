@@ -4,6 +4,8 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 from flask import Blueprint
+from flask import current_app
+
 
 blueprint = Blueprint(
     'home_blueprint',
